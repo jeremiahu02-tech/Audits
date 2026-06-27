@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Spa Experience & Booking</title>
+    <!-- We will link our CSS file here next -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 1. HEADER & NAVIGATION -->
+    <header>
+        <div class="logo">MIDEL ROSE SPA & SKINCARE</div>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <button class="cta-btn" onclick="openBookingModal()">Book Now</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 2. HERO SECTION (The Hook) -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Rejuvenate Your Body & Mind</h1>
+                <p>Experience premium, professional spa treatments tailored just for you right here in Ibadan.</p>
+                <button class="hero-btn" onclick="openBookingModal()">Schedule an Appointment</button>
+            </div>
+        </section>
+
+        <!-- NEW ABOUT SECTION -->
+        <section id="about" style="padding: 80px 5%; background-color: #f7f4f2; text-align: center;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2.2rem; margin-bottom: 20px; font-weight: 400; letter-spacing: 1px;">The Ultimate
+                    Relaxation Experience</h2>
+                <p style="color: #666; font-size: 1.1rem; line-height: 1.8;">
+                    We believe that self-care isn't a luxury—it's a necessity. Our wellness center combines elite,
+                    professional therapy techniques with a peaceful environment designed to melt away stress. From deep
+                    tissue muscle recovery to rejuvenating skin care, our dedicated team ensures you walk out feeling
+                    completely renewed.
+                </p>
+            </div>
+        </section>
+
+        <!-- 3. SERVICES SECTION (The Menu) -->
+        <section id="services">
+            <h2>Our Premium Services</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <h3>Deep Tissue Massage</h3>
+                    <p class="price">₦25,000</p>
+                    <p>Relieve deep muscle tension, improve blood circulation, and completely reset your body.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <h3>Luxury Pedicure & Manicure</h3>
+                    <p class="price">₦15,000</p>
+                    <p>Treat your hands and feet to a thorough exfoliating scrub, massage, and premium polish.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <h3>Glow Skin Care & Facials</h3>
+                    <p class="price">₦30,000</p>
+                    <p>Deep cleansing and hydration designed to leave your skin feeling pampered and radiant.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 4. BOOKING MODAL (The Calendar - Hidden by default until clicked) -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBookingModal()">&times;</span>
+            <h2>Select Your Appointment</h2>
+            <form id="bookingForm">
+
+                <!-- 1. Name Input -->
+                <input type="text" id="clientName" placeholder="Your Name" required>
+
+                <!-- 2. Service Dropdown (All your saved services are perfectly tucked here now) -->
+                <label for="serviceSelected">CHOOSE SERVICE:</label>
+                <select id="serviceSelected"
+                    style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; margin-bottom: 15px; background-color: #ffffff;"
+                    onchange="this.style.color='#000000'; this.style.fontWeight='600';" required>
+                    <option value="" disabled selected hidden>What service do you care for?</option>
+                    <option value="Swedish Massage">Swedish Massage - ₦20,000</option>
+                    <option value="Deep Tissue Massage">Deep Tissue Massage - ₦25,000</option>
+                    <option value="Facial Treatment">Facial Treatment - ₦20,000</option>
+                    <option value="Nail Care">Nail Care - ₦35,000</option>
+                </select>
+
+                <!-- 3. Dynamic Date Picker -->
+                <label for="bookingDate">SELECT DATE:</label>
+                <input type="text" id="bookingDate" placeholder="dd/mm/yyyy" onfocus="this.type='date'; this.click();"
+                    onblur="if(!this.value) this.type='text'" required
+                    style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; margin-bottom: 15px; background-color: #ffffff; color: #000000; box-sizing: border-box;">
+
+                <!-- 4. Dynamic Time Picker -->
+                <label>SELECT TIME SLOT:</label>
+                <select id="bookingTime" onchange="this.style.color='#000000'; this.style.fontWeight='600';" required>
+                    <option value="" disabled selected hidden>Book Time</option>
+                    <option value="09:00 AM">09:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="02:00 PM">02:00 PM</option>
+                    <option value="04:00 PM">04:00 PM</option>
+                </select>
+
+                <!-- 5. Premium WhatsApp Styled Button -->
+                <button type="button" class="whatsapp-btn" onclick="sendWhatsAppOrder(event)">Send WhatsApp
+                    Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 5. FOOTER -->
+    <footer>
+        <p>&copy; 2026 Midel Rose. All Right Reserved.</p>
+    </footer>
+
+    <!-- We will add our JavaScript logic here next -->
+    <script src="script.js"></script>
+</body>
+
+</html>
